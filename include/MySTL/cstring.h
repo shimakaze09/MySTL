@@ -219,4 +219,12 @@ std::basic_ostream<Char, Traits>& operator<<(
 }
 }  // namespace My::MySTL
 
+namespace std {
+template <size_t Index, size_t N>
+constexpr char get(My::MySTL::cstring<N> cstr) noexcept {
+  static_assert(Index < N);
+  return cstr[Index];
+}
+}  // namespace std
+
 #include "detail/cstring.inl"
