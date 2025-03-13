@@ -21,6 +21,9 @@ int main() {
   constexpr auto idx2 = My::MySTL::tuple_find(std::tuple{1, 2, 3}, 3);
   static_assert(idx2 == 2);
 
+  constexpr auto exist = My::MySTL::tuple_constains(std::tuple{1, 2, 3}, 3);
+  static_assert(exist);
+
   constexpr auto cnt = My::MySTL::tuple_count_if(std::tuple{1, 2, 3},
                                                  [](auto e) { return e >= 2; });
   static_assert(cnt == 2);
